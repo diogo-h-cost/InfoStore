@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <header>
+        <div id="header_home">
+            <a href="/" id="nick_loja">InfoStore</a>
+        </div>
+    </header>
+    <main>
+        <div id="cont_cab_hom">
+            <span id="tit_cab">Lista para Reposição</span>
+        </div>
+        <div id="cont_but">
+            <a href="{{ url_for('create') }}" class="butts_home">Adicionar</a>
+            <a href="#" class="butts_home" id="but_fin">Finalizar</a>
+        </div>
+        <div id="bloco_home">
+            <div id="cont_table">
+                <table id="table_list">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Uni</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in produtos %}
+                            <tr>
+                                <td>{{ item.id }}</td>
+                                <td>{{ item.prod }}</td>
+                                <td>{{ item.desc }}</td>
+                                <td>{{ item.uni }}</td>
+                                <td class="esp_but">
+                                    <a href="{{ item.id }}/update" class="but_list">Editar</a>
+                                    <form action="{{ url_for('delete', id=item.id) }}" method="POST">
+                                        <button type="submit" class="but_list" onclick="return confirm('Deseja excluir esse registro?')">Excluir</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <header>
+        <div id="header_home">
+            <a href="" id="nick_loja">InfoStore</a>
+        </div>
+    </header>
+    <main>
+        <div id="cont_cab_hom">
+            <span id="tit_cab">Adicionar Item</span>
+        </div>
+        <div id="lin2_cont">
+            <div id="borda_form">
+                {% for mensagem in get_flashed_messages()  %}
+	                <div>
+		                {{ mensagem }}
+	                </div>
+                {% endfor %}
+                <form action="{{ url_for('create') }}" method="POST">
+                    <div id="cont_form">
+                        <label class="tit_campos">Produto</label>
+                        <input class="campos_cont" type="text" name="produto" placeholder="Insira ..." maxlength="50" required>
+                        <label class="tit_campos">Descrição</label>
+                        <input class="campos_cont" type="text" name="descricao" placeholder="Insira ..." maxlength="80" required>
+                        <label class="tit_campos">Unidades</label>
+                        <input class="campos_cont" type="number" name="unidade" placeholder="Nº" min="0" required>
+                    </div>
+                    <div id="form3_cont">
+                        <button id="butt_cont">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+{% endblock %}
