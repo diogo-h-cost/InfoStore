@@ -1,0 +1,35 @@
+Linux:
+    ------------------------------- Ambiente virtual
+
+    python3.10 -m venv .venv (criar)
+
+    source .venv/bin/activate (Ativar)
+
+    deactivate (Desativar)
+
+    ------------------------------- Pip
+
+    pip install Flask Flask-SQLAlchemy
+
+    ------------------------------- Var Flask
+
+    set FLASk_APP=app.py
+    set FLASK_ENV=development
+
+Windows:
+    ------------------------------- Pip
+
+    pip install Flask Flask-SQLAlchemy
+
+    ------------------------------- Var Flask
+
+    set FLASk_APP=app.py
+    set FLASK_ENV=development
+
+    ------------------------------- Executar o App
+
+    python app.py run
+
+------------------------------- Paleta
+
+[https://paletadecores.com/paleta/39656d/507d85/68949d/7facb4/96c3cc/]
